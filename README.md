@@ -14,17 +14,17 @@ The current implementation focuses on a first-order ODE and serves as a minimal,
 
 We consider the differential equation:
 
-[
+$$
 \frac{du}{dt} = \cos(2\pi t), \quad u(0) = 1
-]
+$$
 
 The analytical solution is given by:
 
-[
+$$
 u(t) = \frac{\sin(2\pi t)}{2\pi} + 1
-]
+$$
 
-The objective is to train a neural network ( u_\theta(t) ) that satisfies the differential equation and initial condition without explicitly using solution data.
+The objective is to train a neural network $u_\theta(t)$ that satisfies the differential equation and initial condition without explicitly using solution data.
 
 ---
 
@@ -59,7 +59,7 @@ Gradients are computed using PyTorch’s automatic differentiation (`torch.autog
 
 A fully-connected neural network is used:
 
-* Input: ( t \in \mathbb{R} )
+* Input: $t \in \mathbb{R}$
 * Hidden layers: 3 layers × 50 neurons
 * Activation: Tanh
 * Output: ( u(t) )
