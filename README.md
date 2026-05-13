@@ -27,17 +27,17 @@ The notebook demonstrates:
 
 We consider the initial value problem (IVP):
 
-\[
+$$
 \frac{du}{dt} = \cos(2\pi t), \quad t \in [0,2], \quad u(0) = 1
-\]
+$$
 
 This problem admits a unique classical solution due to the smoothness of the right-hand side.
 
 The analytical solution is:
 
-\[
+$$
 u(t) = \frac{\sin(2\pi t)}{2\pi} + 1
-\]
+$$
 
 The objective is to train a neural network \( u_\theta(t) \) that satisfies the differential equation and initial condition without explicitly using solution data.
 
@@ -49,23 +49,23 @@ The objective is to train a neural network \( u_\theta(t) \) that satisfies the 
 
 #### Physics Loss (ODE residual)
 
-\[
+$$
 \mathcal{L}_{physics} = \left| \frac{du_\theta}{dt} - \cos(2\pi t) \right|^2
-\]
+$$
 
 #### Initial Condition Loss
 
-\[
+$$
 \mathcal{L}_{IC} = \left| u_\theta(0) - 1 \right|^2
-\]
+$$
 
 #### Total Loss
 
-\[
+$$
 \mathcal{L} = \mathcal{L}_{physics} + \mathcal{L}_{IC}
-\]
+$$
 
-Derivatives \( \frac{du_\theta}{dt} \) are computed using PyTorch’s automatic differentiation (`torch.autograd`), enabling exact differentiation of the neural network with respect to inputs.
+Derivatives d(u_theta(t))/dt are computed using PyTorch’s automatic differentiation (`torch.autograd`), enabling exact differentiation of the neural network output with respect to its input.
 
 ---
 
@@ -73,10 +73,10 @@ Derivatives \( \frac{du_\theta}{dt} \) are computed using PyTorch’s automatic 
 
 A fully-connected neural network is used:
 
-- **Input:** \( t \in \mathbb{R} \)  
+- **Input:** t ∈ R  
 - **Hidden layers:** 3 layers × 50 neurons  
 - **Activation:** Tanh  
-- **Output:** \( u(t) \)  
+- **Output:** u(t)  
 
 This architecture is well-suited for smooth function approximation and is commonly used in PINN literature.
 
@@ -109,7 +109,7 @@ PINN-First-Order-ODE/
 
 ## Results
 
-The trained PINN successfully recovers the analytical solution over the domain \( t \in [0,2] \).
+The trained PINN successfully recovers the analytical solution over the domain t ∈ [0, 2].
 
 ### Observations
 
