@@ -32,20 +32,29 @@ The objective is to train a neural network ( u_\theta(t) ) that satisfies the di
 
 ### Physics-Informed Loss
 
-## Loss Function
+#### Loss Function
 
-- **Physics Loss (ODE residual):**  
-  $$ \mathcal{L}_{physics} = \left| \frac{du_\theta}{dt} - \cos(2\pi t) \right|^2 $$
+**Physics Loss (ODE residual):**
 
-- **Initial Condition Loss:**  
-  $$ \mathcal{L}_{IC} = \left| u_\theta(0) - 1 \right|^2 $$
+$$
+\mathcal{L}_{physics} = \left| \frac{du_\theta}{dt} - \cos(2\pi t) \right|^2
+$$
 
-- **Total Loss:**  
-  $$ \mathcal{L} = \mathcal{L}_{physics} + \mathcal{L}_{IC} $$
+**Initial Condition Loss:**
+
+$$
+\mathcal{L}_{IC} = \left| u_\theta(0) - 1 \right|^2
+$$
+
+**Total Loss:**
+
+$$
+\mathcal{L} = \mathcal{L}_{physics} + \mathcal{L}_{IC}
+$$
 
 Gradients are computed using PyTorch’s automatic differentiation (`torch.autograd`).
----
 
+---
 ## Model Architecture
 
 A fully-connected neural network is used:
